@@ -8,8 +8,8 @@ import { ApiKeyCredentials } from "@azure/ms-rest-js";
 import RandomImageUrl from "./DefaultImages";
 
 // Authentication requirements
-const key = "7212799f8bcf4a4fa961ef18d9692a94";
-const endpoint = "https://turners-image-search.cognitiveservices.azure.com/";
+const key = process.env.REACT_APP_AZURE_COMPUTER_VISION_KEY;
+const endpoint = process.env.REACT_APP_AZURE_VISION_ENDPOINT;
 
 // Cognitive service features
 const visualFeatures = [
