@@ -10,7 +10,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/aubreybmina/Turners-ImageRecognition.git">
-    <img src="src/images/turnerscarslogologo.svg" alt="Logo" width="80">
+    <img src="src/images/turnerscarslogo.png" alt="Logo" width="80">
   </a>
 
 <h3 align="center">Turners Cars</h3>
@@ -189,6 +189,5 @@ Project Link: [https://github.com/aubreybmina/Turners-ImageRecognition](https://
 [Sass-url]: https://sass-lang.com/
 [firebase.google.com]: https://img.shields.io/badge/Firebase-20232A?style=for-the-badge&logo=firebase&logoColor=FFCC31
 [Firebase-url]: https://firebase.google.com/
-
-[azure.microsoft.com] : https://img.shields.io/badge/Azure-20232A?style=for-the-badge&logo=azure&logoColor=34ADE6
+[azure.microsoft.com]: https://img.shields.io/badge/Azure-20232A?style=for-the-badge&logo=azure&logoColor=34ADE6
 [Azure-url]: https://azure.microsoft.com/en-us/
