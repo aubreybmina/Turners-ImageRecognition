@@ -1,4 +1,4 @@
-import { db } from "../firebase";
+import { db } from "./firebase";
 import {
   collection,
   getDocs,
@@ -9,6 +9,7 @@ import {
   doc,
   query,
   where,
+  or,
 } from "@firebase/firestore";
 
 const carCollectionRef = collection(db, "cars");
@@ -24,7 +25,19 @@ export const getCar = async (id) => getDoc(doc(db, "cars", id));
 
 export const getAllCars = async () => getDocs(carCollectionRef);
 
-export const searchCars = async (searchTerm) => {
-  const q = query(carCollectionRef, where("body", "==", searchTerm));
+export const searchCars = async (body) => {
+  const q = query(carCollectionRef, where("body", "==", body.toLowerCase()));
+  return await getDocs(q);
+};
+
+export const searchCarsByBodyModelBrand = async (brand, model, body) => {
+  const q = query(
+    carCollectionRef,
+    or(
+      where("body", "==", body.toLowerCase()),
+      where("model", "==", model.toLowerCase()),
+      where("brand", "==", brand.toLowerCase())
+    )
+  );
   return await getDocs(q);
 };

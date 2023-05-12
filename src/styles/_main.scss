@@ -1,8 +1,8 @@
-@use 'colors' as c;
-@use 'utils' as u;
-@use 'media-queries' as m;
+@use "colors" as c;
+@use "utils" as u;
+@use "media-queries" as m;
 
-.hero {
+.home {
   display: flex;
   flex-direction: column;
   background-image: url("../images/bg-image.jpeg");
@@ -12,7 +12,7 @@
   padding: 6% 6%;
   color: c.$primary-color;
 
-  &__taglinecontainer { 
+  &__taglinecontainer {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -24,7 +24,7 @@
       font-size: u.toRem(60);
       font-weight: 900;
       line-height: 1.24;
-      color: c.$primary-color; 
+      color: c.$primary-color;
     }
 
     p {
@@ -37,7 +37,6 @@
         font-size: 1.5rem;
       }
     }
-
   }
 
   &__searchcontainer {
@@ -85,11 +84,11 @@
         }
 
         @include m.tablet700px {
-          width: u.toRem(400)
+          width: u.toRem(400);
         }
 
         @include m.mobile500px {
-          width: u.toRem(280)
+          width: u.toRem(280);
         }
 
         @include m.mobile {
@@ -104,7 +103,7 @@
         color: c.$primary-color;
         cursor: pointer;
         height: u.toRem(60);
-        padding: 0 u.toRem(30); 
+        padding: 0 u.toRem(30);
         font-size: 1rem;
 
         &:hover,
@@ -114,7 +113,6 @@
           transition: border 100ms, color 100ms;
           color: c.$standout-color;
         }
-
       }
     }
   }

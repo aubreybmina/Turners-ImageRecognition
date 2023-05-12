@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { addCar, searchCars } from "../../services/CarDataService";
 
-const AddCar = (searchResults) => {
+const AddCar = () => {
   const [vehicle, setVehicle] = useState("");
+  const [brand, setBrand] = useState("");
+  const [model, setModel] = useState("");
   const [year, setYear] = useState("");
   const [body, setBody] = useState("");
   const [seats, setSeats] = useState("");
@@ -10,42 +12,44 @@ const AddCar = (searchResults) => {
   const [transmission, setTransmission] = useState("");
   const [odometer, setOdometer] = useState("");
   const [price, setPrice] = useState("");
+  const [location, setLocation] = useState("");
   const [imageURL, setImageURL] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newCar = {
-      vehicle: vehicle,
+      vehicle: vehicle.toLowerCase(),
+      brand: brand.toLowerCase(),
+      model: model.toLowerCase(),
       year: year,
-      body: body,
+      body: body.toLowerCase(),
       seats: seats,
-      colour: colour,
-      transmission: transmission,
-      odometer: odometer,
+      colour: colour.toLowerCase(),
+      transmission: transmission.toLowerCase(),
+      odometer: odometer.toLowerCase(),
       price: price,
+      location: location.toLowerCase(),
       imageURL: imageURL,
     };
 
     try {
       const car = await addCar(newCar);
-      console.log(car);
       console.log("New Car Added!");
     } catch (err) {
       console.log(err);
     }
-    // setVehicle("");
-    // setYear("");
-    // setBody("");
-    // setSeats("");
-    // setColour("");
-    // setTransmission("");
-    // setOdometer("");
-    // setImageURL("");
+    setVehicle("");
+    setBrand("");
+    setModel("");
+    setYear("");
+    setBody("");
+    setSeats("");
+    setColour("");
+    setTransmission("");
+    setOdometer("");
+    setImageURL("");
   };
-
-  const newval = `${searchResults} Jude!`;
-  console.log(newval);
 
   const allCars = async (e) => {
     const all = await searchCars();
@@ -61,6 +65,18 @@ const AddCar = (searchResults) => {
           placeholder="Vehicle"
           value={vehicle}
           onChange={(e) => setVehicle(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Brand"
+          value={brand}
+          onChange={(e) => setBrand(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Model"
+          value={model}
+          onChange={(e) => setModel(e.target.value)}
         />
         <input
           type="text"
@@ -103,6 +119,12 @@ const AddCar = (searchResults) => {
           placeholder="Price"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Location"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
         />
         <input
           type="text"

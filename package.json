@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@azure/cognitiveservices-computervision": "^8.2.0",
+    "@azure/cognitiveservices-customvision-prediction": "^5.1.2",
+    "@azure/cognitiveservices-customvision-training": "^5.2.0",
     "async": "^3.2.4",
     "axios": "^1.4.0",
     "firebase": "^9.21.0",
@@ -11,7 +13,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
-    "react-router-dom": "^6.10.0",
+    "react-router-dom": "^6.11.1",
     "react-scripts": "5.0.1"
   },
   "scripts": {

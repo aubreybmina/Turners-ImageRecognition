@@ -1,13 +1,14 @@
-import axios from 'axios'
+export const getPrediction = async (image) => {
+  return await getPredictionFetch(image);
+};
 
-export const getCar = async (searchtext) => getCarAxios(searchtext)
-
-export const getCarAxios = async (searchtext) => {
-    const response = await axios.get(`https://api.tmsandbox.co.nz/v1/Search/Property/Residential.json?bathrooms_min=${searchtext}`, {
-        headers: {
-            Authorization: `OAuth oauth_consumer_key=DF327510C40E41796925F1815F663954, oauth_signature_method=PLAINTEXT, oauth_signature=AFC17EBB8166A8F6A1DC66DBE7B2E342%26`
-        }
-    })
-    console.log(response.data)
-    return await response.data;
-}
+export const getPredictionFetch = async (image) => {
+  const response = await fetch(process.env.REACT_APP_CUSTOM_VISION_URL, {
+    method: "POST",
+    body: image,
+    headers: {
+      "Prediction-Key": process.env.REACT_APP_CUSTOM_VISION_KEY,
+    },
+  });
+  return await response.json();
+};

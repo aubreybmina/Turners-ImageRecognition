@@ -1,12 +1,10 @@
-@use 'colors' as c;
-@use 'cars';
-@use 'nav';  
-@use 'hero';
-@use 'footer';
+@use "colors" as c;
+@use "cars";
+@use "nav";
+@use "main";
+@use "footer";
 
 .main {
-	background: c.$primary-color;
-	font-family: 'Segoe UI', sans-serif;
+  background: c.$primary-color;
+  font-family: "Segoe UI", sans-serif;
 }
-
-

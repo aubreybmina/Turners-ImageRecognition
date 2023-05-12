@@ -1,37 +1,26 @@
 import React, { useState } from "react";
+import { FaSearch } from "react-icons/fa";
 import {
   computerVision,
   isConfigured as ComputerVisionIsConfigured,
-} from "./ImageSearch";
+} from "../../api/ImageSearch";
 
-function App() {
+const SearchURL = (searchTerms) => {
   const [fileSelected, setFileSelected] = useState(null);
   const [analysis, setAnalysis] = useState(null);
-  const [processing, setProcessing] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleChange = (e) => {
     setFileSelected(e.target.value);
   };
   const onFileUrlEntered = (e) => {
-    // hold UI
-    setProcessing(true);
+    setFileSelected(searchTerm);
     setAnalysis(null);
 
     computerVision(fileSelected || null).then((item) => {
-      // reset state/form
       setAnalysis(item);
       setFileSelected("");
-      setProcessing(false);
     });
-  };
-
-  // Display JSON data in readable format
-  const PrettyPrintJson = (data) => {
-    return (
-      <div>
-        <pre>{JSON.stringify(data, null, 2)}</pre>
-      </div>
-    );
   };
 
   const DisplayResults = () => {
@@ -52,33 +41,30 @@ function App() {
             }
           />
         </div>
-        {PrettyPrintJson(analysis)}
+        <div>Are you looking for a {analysis.objects[0].object}?</div>
+        {searchTerms.search(analysis.objects[0].object)}
       </div>
     );
   };
 
   const Analyze = () => {
     return (
-      <div>
-        <h1>Analyze image</h1>
-        {!processing && (
-          <div>
-            <div>
-              <label>URL</label>
-              <input
-                type="text"
-                placeholder="Enter URL or leave empty for random image from collection"
-                size="50"
-                onChange={handleChange}
-              ></input>
-            </div>
-            <button onClick={onFileUrlEntered}>Analyze</button>
-          </div>
-        )}
-        {processing && <div>Processing</div>}
-        <hr />
+      <>
+        <div className="home__searchcontainer">
+          <form className="home__searchcontainer--form">
+            <input
+              type="text"
+              name="search"
+              placeholder="Enter URL or body type"
+              onChange={handleChange}
+            ></input>
+            <button onClick={onFileUrlEntered}>
+              <FaSearch /> Search
+            </button>
+          </form>
+        </div>
         {analysis && DisplayResults()}
-      </div>
+      </>
     );
   };
 
@@ -100,6 +86,6 @@ function App() {
   }
 
   return <div>{Render()}</div>;
-}
+};
 
-export default App;
+export default SearchURL;

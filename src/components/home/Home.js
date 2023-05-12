@@ -1,43 +1,42 @@
 import React from "react";
-import { useEffect, useState } from "react";
-import Hero from "./Hero";
-import CarsCard from "./CarsCard";
-import { getAllCars } from "../../services/CarDataService";
+import { useState } from "react";
+import SearchURL from "./SearchURL";
+import SearchUpload from "./SearchUpload";
+import Cars from "./Cars";
 
 const Home = () => {
-  const [cars, setCars] = useState([]);
+  const [cars, setCars] = useState("");
 
-  useEffect(() => {
-    const fetchData = async () => {
-      let list = [];
-      try {
-        const response = await getAllCars();
-        response.forEach((doc) => {
-          list.push({ id: doc.id, ...doc.data() });
-        });
-        setCars(list);
-        console.log(list);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchData();
-  }, []);
+  function getSearchTerm(searchTerm) {
+    setCars(searchTerm);
+  }
+
+  const DisplayCars = () => {
+    if (cars !== undefined) {
+      return <SearchCar />;
+    }
+    return <NoCars />;
+  };
+
+  const SearchCar = () => {
+    return <Cars cars={cars} />;
+  };
+
+  const NoCars = () => {
+    return <div>No cars to display.</div>;
+  };
 
   return (
     <>
-      <Hero />
-      {cars?.length > 0 ? (
-        <div className="cars">
-          {cars.map((car) => (
-            <CarsCard key={car.id} car={car} />
-          ))}
+      <div className="home">
+        <div className="home__taglinecontainer">
+          <h1>We love buying cars!</h1>
+          <p>Sell your car for cash today!</p>
         </div>
-      ) : (
-        <div className="empty">
-          <h2>No properties found.</h2>
-        </div>
-      )}
+        <SearchURL search={getSearchTerm} />
+        <SearchUpload search={getSearchTerm} />
+      </div>
+      {DisplayCars()}
     </>
   );
 };

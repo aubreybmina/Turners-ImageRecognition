@@ -3,7 +3,7 @@ import { getFirestore } from "@firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_KEY,
-  authDomain: process.env.REACT_APP_AUTHDOMAIN,
+  authDohome: process.env.REACT_APP_AUTHDOhome,
   projectId: "turnersapp-59975",
   storageBucket: "turnersapp-59975.appspot.com",
   messagingSenderId: "1096938833527",

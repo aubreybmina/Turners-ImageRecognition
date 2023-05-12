@@ -206,7 +206,7 @@
   transition: border 100ms, color 100ms;
 }
 
-.hero {
+.home {
   display: flex;
   flex-direction: column;
   background-image: url("../images/bg-image.jpeg");
@@ -216,13 +216,13 @@
   padding: 6% 6%;
   color: #ffffff;
 }
-.hero__taglinecontainer {
+.home__taglinecontainer {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.hero__taglinecontainer h1 {
+.home__taglinecontainer h1 {
   margin-top: 0;
   margin-bottom: 0.625rem;
   font-size: 3.75rem;
@@ -230,21 +230,21 @@
   line-height: 1.24;
   color: #ffffff;
 }
-.hero__taglinecontainer p {
+.home__taglinecontainer p {
   font-size: 1.5rem;
   color: #EDEDED;
   margin-top: 2rem;
   font-weight: 700;
 }
 @media (max-width: 16.75rem) {
-  .hero__taglinecontainer p {
+  .home__taglinecontainer p {
     font-size: 1.5rem;
   }
 }
-.hero__searchcontainer {
+.home__searchcontainer {
   width: auto;
 }
-.hero__searchcontainer--form {
+.home__searchcontainer--form {
   display: grid;
   grid-template-columns: 1fr 20%;
   justify-items: center;
@@ -255,7 +255,7 @@
   align-items: center;
 }
 @media (max-width: 48rem) {
-  .hero__searchcontainer--form {
+  .home__searchcontainer--form {
     grid-template-columns: 1fr;
     width: 25%;
     align-items: center;
@@ -263,13 +263,13 @@
   }
 }
 @media (max-width: 16.75rem) {
-  .hero__searchcontainer--form {
+  .home__searchcontainer--form {
     grid-template-columns: 1fr;
     align-items: center;
     justify-items: normal;
   }
 }
-.hero__searchcontainer--form input {
+.home__searchcontainer--form input {
   background-color: #ffffff;
   border: #ffffff;
   color: #505050;
@@ -279,30 +279,30 @@
   padding: 0.625rem 0.625rem;
   font-size: 1.5rem;
 }
-.hero__searchcontainer--form input:focus {
+.home__searchcontainer--form input:focus {
   outline: none;
 }
 @media (max-width: 48rem) {
-  .hero__searchcontainer--form input {
+  .home__searchcontainer--form input {
     width: 34.375rem;
   }
 }
 @media (max-width: 43.75rem) {
-  .hero__searchcontainer--form input {
+  .home__searchcontainer--form input {
     width: 25rem;
   }
 }
 @media (max-width: 31.25rem) {
-  .hero__searchcontainer--form input {
+  .home__searchcontainer--form input {
     width: 17.5rem;
   }
 }
 @media (max-width: 16.75rem) {
-  .hero__searchcontainer--form input {
+  .home__searchcontainer--form input {
     width: 12.5rem;
   }
 }
-.hero__searchcontainer--form button {
+.home__searchcontainer--form button {
   background: #0073CF;
   border: none;
   outline: none;
@@ -312,7 +312,7 @@
   padding: 0 1.875rem;
   font-size: 1rem;
 }
-.hero__searchcontainer--form button:hover, .hero__searchcontainer--form button:focus {
+.home__searchcontainer--form button:hover, .home__searchcontainer--form button:focus {
   border: 0rem solid #0073CF;
   background-color: #ffffff;
   transition: border 100ms, color 100ms;
