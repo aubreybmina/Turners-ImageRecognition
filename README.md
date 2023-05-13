@@ -93,19 +93,30 @@ For image upload custom recognition, you need to create an account in customvisi
    ```sh
    git clone https://github.com/aubreybmina/Turners-ImageRecognition.git
    ```
-2. Install the dependecies used using the following code
+2. Install the dependecies used using the following script in your terminal window. This will install the dependencies in package.json
 
    ```sh
    npm init
    npm install
    ```
 
-3. Create an account in Cognitive
+3. Create an account in Cognitive and Custom Vision where you can get the keys, url, and endpoint needed.
+ 
+4. Create a simple database in Firestore using Google Firebase with database name "cars".
 
-   ```sh
-   npm init
-   npm install
-   ```
+|     Field    |  Type  | Value |
+| ------------ | ------ | ----- |
+|     body     | string |    sedan   |
+|     brand    | string |    honda   |
+|    colour    | string |    white   |
+|   imageURL   | string | <img link> |
+|   location   | string |  Hamilton  |
+|    model     | string |    city    | 
+|   odometer   | string |  30,000 km |
+|    price     | string | $20,000.00 |
+|    seats     | string |     5      |
+| transmission | string | automatic  |
+|      year    | string |     2016   |
 
 4. Enter your KEYS and END_POINT in `.env`
 
